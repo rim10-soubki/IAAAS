@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Messaging App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <h1>Secure Messaging App</h1>
+  
+  <!-- Registration Form -->
+  <h2>Registration</h2>
+  <form id="registrationForm">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    <button type="submit">Register</button>
+  </form>
+  
+  <!-- Message Sending Form -->
+  <h2>Send Message</h2>
+  <form id="sendMessageForm">
+    <label for="sender">Sender:</label>
+    <input type="text" id="sender" name="sender" required><br>
+    <label for="recipient">Recipient:</label>
+    <input type="text" id="recipient" name="recipient" required><br>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+  
+  <!-- Message Viewing Section -->
+  <h2>Received Messages</h2>
+  <div id="messages"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
