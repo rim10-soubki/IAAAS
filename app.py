@@ -5,8 +5,8 @@ import hashlib
 app = Flask(__name__)
 
 # Configuration de la connexion à MongoDB Atlas
-client = MongoClient("mailto:mongodb+srv://amaamar01:s013e2ayffviuags@cluster0.1jlmqpc.mongodb.net/")
-db = client['<EncryptDB>']  
+client = MongoClient("mongodb+srv://amaamar01:s013e2ayffviuags@cluster0.1jlmqpc.mongodb.net/")
+db = client['EncryptDB']  
 users_collection = db['Users']
 
 # Fonction pour hasher le mot de passe
@@ -45,7 +45,7 @@ def register():
 
     # Si la requête est GET, afficher la page d'inscription (Vous pouvez utiliser des templates Flask)
 
-    return render_template('Front-end/pages/register.html')
+    return render_template('front-end/pages/register.html')
 
 @app.route('/success')
 def success():
