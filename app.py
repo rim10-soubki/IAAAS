@@ -5,7 +5,7 @@ import hashlib
 app = Flask(__name__)
 
 # Configuration de la connexion à MongoDB Atlas
-client = MongoClient("mongodb+srv://amaamar01:s013e2ayffviuags@cluster0.1jlmqpc.mongodb.net/")
+client = MongoClient("mongodb+srv://amaamar01:s013e2aYFFVIUAGs@cluster0.1jlmqpc.mongodb.net/?retryWrites=true&w=majority")
 db = client['EncryptDB']  
 users_collection = db['Users']
 
