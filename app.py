@@ -90,14 +90,18 @@ def send_message():
         return redirect(url_for('login'))
 
     if request.method == 'POST':
+        sender_username = session['username']
+        sender = users_collection.find_one({"username": sender_username})  # Récupérer l'utilisateur complet
         receiver_username = request.form['receiverUsername']
         message_content = request.form['messageContent']
         receiver = users_collection.find_one({"username": receiver_username})
+        sender_full_name = sender['fullName']
         
         if receiver:
             encrypted_message = encrypt_message(message_content)
             messages_collection.insert_one({
                 "senderId": ObjectId(session['user_id']),
+                "senderFullName": sender_full_name,  # Ajouter le nom complet de l'expéditeur
                 "receiverId": receiver['_id'],
                 "messageEncrypted": encrypted_message,
                 "timestamp": datetime.utcnow(),
