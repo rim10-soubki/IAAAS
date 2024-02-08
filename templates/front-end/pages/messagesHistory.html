@@ -9,17 +9,25 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">MessageApp</a>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="/send_message">Envoyer un message</a>
-                <a class="nav-link active" href="/messages">Historique des messages</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MessageApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/send_message">Envoyer un message</a>
+                    <a class="nav-link active" href="/messages">Historique des messages</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <span class="navbar-text me-2">Connecté en tant que {{ session['username'] }}</span>
+                    <a class="nav-link" href="/logout">Logout</a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
+    
 
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Historique des Messages</h2>

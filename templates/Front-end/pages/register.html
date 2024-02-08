@@ -5,44 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Application de Messagerie Chiffrée</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding-top: 40px;
-            background-color: #f8f9fa;
-        }
-        .form-signin {
-            width: 100%;
-            max-width: 330px;
-            padding: 15px;
-            margin: auto;
-        }
-    </style>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h2 class="mb-4 text-center">Inscription</h2>
-                <form class="form-signin" id="registerForm" action="/register" method="post">
-                    <div class="mb-3">
-                        <label for="fullName" class="form-label">Nom complet</label>
-                        <input type="text" class="form-control" id="fullName" name="fullName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Nom d'utilisateur</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Mot de passe</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirmez le mot de passe</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
-                </form>
-            </div>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4">
+            <h2 class="card-title text-center mb-4">Inscription</h2>
+            <form id="registerForm" action="/register" method="post">
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Nom complet</label>
+                    <input type="text" class="form-control" id="fullName" name="fullName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nom d'utilisateur</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirmez le mot de passe</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+            </form>
         </div>
     </div>
 
