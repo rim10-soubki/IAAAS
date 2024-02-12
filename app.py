@@ -11,7 +11,7 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 app.secret_key = os.urandom(24)  # Pour la production, utilisez une clé fixe définie dans un environnement sécurisé
 
-# Remplacez ceci par votre propre chaîne de connexion à MongoDB Atlas
+
 client = MongoClient("mongodb+srv://amaamar01:s013e2aYFFVIUAGs@cluster0.1jlmqpc.mongodb.net/?retryWrites=true&w=majority")
 db = client['EncryptDB']
 users_collection = db['Users']
@@ -31,12 +31,21 @@ def encrypt_message(message):
     encrypted_message = cipher_suite.encrypt(message)
     return encrypted_message.decode()  # Stockez et travaillez avec le message chiffré en tant que string
 
+
+
+
 def decrypt_message(encrypted_message):
     try:
+        cipher_suite = Fernet(key)
         decrypted_message = cipher_suite.decrypt(encrypted_message.encode())
         return decrypted_message.decode()
-    except InvalidToken:
-        raise ValueError("Le message ne peut pas être déchiffré avec la clé fournie.")
+    except InvalidToken as e:
+        # Handle decryption error
+        print("Decryption error:", e)
+        return None  # or raise an exception or return a default value
+
+
+
 
 # Ajoutez cette fonction pour la rendre accessible depuis les templates Jinja2
 @app.context_processor
